@@ -1,0 +1,35 @@
+Dobrý den,
+
+děkujeme za Váš životopis a poprosím Vás o vyřešení malého úkolu viz níže:
+
+ULOHA:
+Přehled oscarů za nejlepší mužskou a ženskou hlavní roli.
+
+Prosíme, vytvořte web aplikaci bez použití jakéhokoliv frameworku. Kód by měl být napsán s využitím OOP.
+
+Jednoduchá stránka v Bootstrap 5, kde bude formulář pro nahrání dvou CSV souborů.
+https://people.sc.fsu.edu/~jburkardt/data/csv/oscar_age_female.csv
+https://people.sc.fsu.edu/~jburkardt/data/csv/oscar_age_male.csv
+
+Zpracování nahraných souborů v PHP a zobrazení výsledku v HTML (bootstrap) ve formě:
+
+1) Tabulka s přehledem oscarů podle roku
+- 3 sloupce: Rok, Ženy, Muži
+- ve sloupcích ženy/muži uvést jméno herce, v závorce věk. Pod tím název filmu.
+
+2) Tabulka se seznamem filmů, které obdržely oscary za mužskou i ženskou hlavní roli
+- 4 sloupce: Název filmu, Rok, Herečka, Herec
+- seřadit abecedně podle názvu filmu
+
+Použijte Docker a nahrajte výsledné řešení na github. V README.md popište, jak má být výsledná webová aplikace spuštěna.
+
+
+Děkuji a přeji příjemný den
+
+Michaela Fejfarová
+Fio banka, a.s.
+V Celnici 10
+117 21 Praha 1
+tel.: 224 346 611
+mobil: 724 346 894
+e-mail: personalni@fio.cz
