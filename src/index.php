@@ -50,17 +50,16 @@ include_once "Model/Sorting.php";
 
     <div class="row">
         <div class="col m-3">
-            <?php
-
-            if (isset($_POST["sort_type"])) {
+            <?php if (isset($_POST["sort_type"])) {
 
                 $csv = new ReaderCsv();
                 $male = $csv->readCsv($csv->loadSource($_POST['url_male']));
                 $female = $csv->readCsv($csv->loadSource($_POST['url_female']));
                 $sort = new Sorting($male, $female);
-                $sm = $sort->getOscarsByYearMale();
 
-                if ($_POST["sort_type"] == 1) { ?>
+                if ($_POST["sort_type"] == 1) {
+                    $sm = $sort->getOscarsByYearMale();
+                    ?>
                     <table class="table table-striped">
                         <?php foreach ($sort->getOscarsByYearFemale() as $row) { ?>
                             <tr>
@@ -70,8 +69,7 @@ include_once "Model/Sorting.php";
                             </tr>
                         <?php } ?>
                     </table>
-                <?php }
-                elseif ($_POST["sort_type"] == 2) { ?>
+                <?php } elseif ($_POST["sort_type"] == 2) { ?>
                     <table class="table table-striped">
                         <?php foreach ($sort->filmsWithBothAwards() as $row) { ?>
                             <tr>
@@ -83,17 +81,10 @@ include_once "Model/Sorting.php";
                         <?php } ?>
                     </table>
                 <?php }
-
-
-            }
-
-
-            ?>
+            } ?>
         </div>
     </div>
-
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
