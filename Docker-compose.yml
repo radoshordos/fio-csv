@@ -1,9 +1,38 @@
-version: '3.8'
-
 services:
+  # PHP a Apache server
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fiocsv-web
     ports:
       - "3000:80"
     volumes:
-      - ./src:/var/www/html
+      - ./public:/var/www/html/public
+      - ./app:/var/www/html/app
+      - ./composer.json:/var/www/html/composer.json
+      - ./vendor:/var/www/html/vendor
+    depends_on:
+      - composer
+
+  # Composer container pro instalaci závislostí
+  composer:
+    image: composer:latest
+    container_name: fiocsv-composer
+    volumes:
+      - ./app:/app
+      - ./composer.json:/app/composer.json
+      - ./vendor:/app/vendor
+    working_dir: /app
+    command: ["composer", "install"]
+
+  # Testovací container pro PHPUnit
+  phpunit:
+    image: php:8.3-cli
+    container_name: fiocsv-phpunit
+    volumes:
+      - ./app:/app
+      - ./composer.json:/app/composer.json
+      - ./vendor:/app/vendor
+    working_dir: /app
+    command: ["vendor/bin/phpunit", "--colors=always"]

@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace App\Model;
 
 class Person
 {
@@ -17,6 +17,31 @@ class Person
         $this->age = trim($age);
         $this->name = trim($name);
         $this->movie = trim($movie);
+    }
+
+    public function getIndex(): string
+    {
+        return $this->index;
+    }
+
+    public function getYear(): string
+    {
+        return $this->year;
+    }
+
+    public function getAge(): string
+    {
+        return $this->age;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getMovie(): string
+    {
+        return $this->movie;
     }
 
     public function getFullNameWithAge(): string
