@@ -8,31 +8,16 @@ services:
     ports:
       - "3000:80"
     volumes:
-      - ./public:/var/www/html/public
-      - ./app:/var/www/html/app
-      - ./composer.json:/var/www/html/composer.json
-      - ./vendor:/var/www/html/vendor
-    depends_on:
-      - composer
-
-  # Composer container pro instalaci závislostí
-  composer:
-    image: composer:latest
-    container_name: fiocsv-composer
-    volumes:
-      - ./app:/app
-      - ./composer.json:/app/composer.json
-      - ./vendor:/app/vendor
-    working_dir: /app
-    command: ["composer", "install"]
+      - .:/var/www/html/
 
   # Testovací container pro PHPUnit
   phpunit:
     image: php:8.3-cli
     container_name: fiocsv-phpunit
     volumes:
-      - ./app:/app
-      - ./composer.json:/app/composer.json
+      - ./src:/var/www/html/src
+      - ./tests:/var/www/html/tests
       - ./vendor:/app/vendor
-    working_dir: /app
-    command: ["vendor/bin/phpunit", "--colors=always"]
+      - ./composer.json:/app/composer.json
+    working_dir: /src
+    command: [ "vendor/bin/phpunit", "--colors=always" ]

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
-class Person
+class PersonEntry implements PersonEntryInterface
 {
     public function __construct(
         public string $index,
