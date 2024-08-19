@@ -20,10 +20,10 @@
         <tbody>
         <?php foreach ($films as $film => $entries): ?>
             <tr>
-                <td><?= $film ?></td>
+                <td><?= $entries[0]->film ?></td>
                 <td><?= $entries[0]->year ?></td>
                 <td><?= $entries[0]->name ?></td>
-                <td><?= $entries[1]->name ?></td>
+                <td><?= $entries[1]->getFullNameWithAgeAndMovie() ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

@@ -2,13 +2,15 @@
 
 namespace App\Controllers;
 
-use App\Services\PersonServiceInterface;
+use App\Interfaces\PersonServiceInterface;
 use App\Services\PersonService;
 
-class PersonController {
+class PersonController
+{
     private PersonServiceInterface $personService;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->personService = new PersonService();
     }
 
@@ -21,10 +23,10 @@ class PersonController {
             $overview = $this->personService->getPersonOverview($femaleCsv, $maleCsv);
             $films = $this->personService->getFilmsWithBothAwards($femaleCsv, $maleCsv);
 
-            include __DIR__ . '/../views/overview.php';
-            include __DIR__ . '/../views/films.php';
+            include __DIR__ . '/../../public/views/overview.php';
+            include __DIR__ . '/../../public/views/films.php';
         } else {
-            include __DIR__ . '/../views/upload_form.php';
+            include __DIR__ . '/../../public/views/upload_form.php';
         }
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Interfaces\PersonEntryInterface;
+
 class PersonEntry implements PersonEntryInterface
 {
     public function __construct(
@@ -29,9 +31,9 @@ class PersonEntry implements PersonEntryInterface
         return $this->year;
     }
 
-    public function getAge(): string
+    public function getFullNameWithAgeAndMovie(): string
     {
-        return $this->age;
+        return $this->getName() . ' (' . $this->getAge() . ')<br />' . $this->getMovie();
     }
 
     public function getName(): string
@@ -39,13 +41,13 @@ class PersonEntry implements PersonEntryInterface
         return $this->name;
     }
 
+    public function getAge(): string
+    {
+        return $this->age;
+    }
+
     public function getMovie(): string
     {
         return $this->movie;
-    }
-
-    public function getFullNameWithAge(): string
-    {
-        return $this->name . ' (' . $this->age . ')';
     }
 }

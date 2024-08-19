@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Interfaces\PersonDataInterface;
+use App\Interfaces\PersonEntryInterface;
+
 class PersonData implements PersonDataInterface
 {
     public array $entries = [];
@@ -13,7 +16,7 @@ class PersonData implements PersonDataInterface
 
     public function getEntriesByYear(): array
     {
-        usort($this->entries, static fn($a, $b) => $a->year <=> $b->year);
+        usort($this->entries, static fn($a, $b) => $a->year <=> $b->year ?: strcmp($a->film, $b->film));
         return $this->entries;
     }
 
