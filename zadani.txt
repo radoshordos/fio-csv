@@ -1,5 +1,4 @@
 Dobrý den,
-
 děkujeme za Váš životopis a poprosím Vás o vyřešení malého úkolu viz níže:
 
 ULOHA:
@@ -22,14 +21,4 @@ Zpracování nahraných souborů v PHP a zobrazení výsledku v HTML (bootstrap)
 - seřadit abecedně podle názvu filmu
 
 Použijte Docker a nahrajte výsledné řešení na github. V README.md popište, jak má být výsledná webová aplikace spuštěna.
-
-
 Děkuji a přeji příjemný den
-
-Michaela Fejfarová
-Fio banka, a.s.
-V Celnici 10
-117 21 Praha 1
-tel.: 224 346 611
-mobil: 724 346 894
-e-mail: personalni@fio.cz

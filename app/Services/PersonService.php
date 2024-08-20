@@ -43,6 +43,8 @@ class PersonService implements PersonServiceInterface
         foreach ($maleData->entries as $entry) {
             $combinedData->addEntry($entry);
         }
-        return $combinedData->getFilmsWithBothAwards();
+        $combined = $combinedData->getFilmsWithBothAwards();
+        ksort($combined);
+        return $combined;
     }
 }

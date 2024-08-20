@@ -16,15 +16,16 @@ class PersonData implements PersonDataInterface
 
     public function getEntriesByYear(): array
     {
-        usort($this->entries, static fn($a, $b) => $a->year <=> $b->year ?: strcmp($a->film, $b->film));
+        usort($this->entries, static fn($a, $b) => $a->getYear() <=> $b->getYear() ?: strcmp($a->getMovie(), $b->getMovie()));
         return $this->entries;
     }
 
     public function getFilmsWithBothAwards(): array
     {
         $films = [];
+        /* @var $entry PersonEntry */
         foreach ($this->entries as $entry) {
-            $film = $entry->film;
+            $film = $entry->getMovie();
             if (!isset($films[$film])) {
                 $films[$film] = [$entry];
             } else {

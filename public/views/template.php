@@ -58,23 +58,49 @@
     </form>
     <hr/>
 
-    <?php
-    var_export($films);
-    ?>
-
-    <?php if (isset($films)) {
-
-        foreach ($films as $film => $entries) { ?>
+    <?php if (isset($years)) { ?>
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td><?= $entries[0]->film ?></td>
-                <td><?= $entries[0]->year ?></td>
-                <td><?= $entries[0]->name ?></td>
-                <td><?= $entries[1]->getFullNameWithAgeAndMovie() ?></td>
+                <th>Rok</th>
+                <th>Herečka</th>
+                <th>Herec</th>
             </tr>
-        <?php }
-    } ?>
+            </thead>
+            <tbody>
+            <?php foreach ($years as $year) { ?>
+                <tr>
+                    <td><?= $year[App\Enums\Gender::FEMALE->value]->getYear() ?></td>
+                    <td><?= $year[App\Enums\Gender::FEMALE->value]->getFullNameWithAgeAndMovie() ?></td>
+                    <td><?= $year[App\Enums\Gender::MALE->value]->getFullNameWithAgeAndMovie() ?></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    <?php } ?>
 
-
+    <?php if (isset($both_awards)) { ?>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Název filmu</th>
+                <th>Rok</th>
+                <th>Herečka</th>
+                <th>Herec</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($both_awards as $ba) { ?>
+                <tr>
+                    <td><?= $ba[0]->getMovie() ?></td>
+                    <td><?= $ba[0]->getYear() ?></td>
+                    <td><?= $ba[0]->getName() ?></td>
+                    <td><?= $ba[1]->getName() ?></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    <?php } ?>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
