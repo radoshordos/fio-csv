@@ -3,17 +3,17 @@
 namespace App\Services;
 
 use App\Enums\Gender;
-use App\Interfaces\CsvParserInterface;
+use App\Interfaces\DataLoaderInterface;
 use App\Interfaces\PersonServiceInterface;
 use App\Models\PersonData;
 
 class PersonService implements PersonServiceInterface
 {
-    private CsvParserInterface $csvParser;
+    private DataLoaderInterface $csvParser;
 
     public function __construct()
     {
-        $this->csvParser = new CsvParser();
+        $this->csvParser = new CsvLoader();
     }
 
     public function getPersonOverview(string $femaleCsv, string $maleCsv): array

@@ -2,16 +2,18 @@
 
 namespace App\Services;
 
-use App\Interfaces\CsvParserInterface;
+use App\Interfaces\DataLoaderInterface;
 use App\Models\PersonData;
 use App\Models\PersonEntry;
 
-class CsvParser implements CsvParserInterface
+class CsvLoader implements DataLoaderInterface
 {
-    public function parse(string $csvPath): PersonData
+    public const string SOURCE_URL = 'https://people.sc.fsu.edu/~jburkardt/data/csv/';
+
+    public function parse(string $source): PersonData
     {
         $data = new PersonData();
-        if (($handle = fopen($csvPath, 'rb')) !== false) {
+        if (($handle = fopen(self::SOURCE_URL . $source, 'rb')) !== false) {
             fgetcsv($handle);
             while (($row = fgetcsv($handle)) !== false) {
                 if (!is_null($row[0])) {

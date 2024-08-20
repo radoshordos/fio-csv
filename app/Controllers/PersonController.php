@@ -16,17 +16,15 @@ class PersonController
 
     public function handleRequest(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['female_csv'], $_FILES['male_csv'])) {
-            $femaleCsv = $_FILES['female_csv']['tmp_name'];
-            $maleCsv = $_FILES['male_csv']['tmp_name'];
-
-            $overview = $this->personService->getPersonOverview($femaleCsv, $maleCsv);
-            $films = $this->personService->getFilmsWithBothAwards($femaleCsv, $maleCsv);
-
-            include __DIR__ . '/../../public/views/overview.php';
-            include __DIR__ . '/../../public/views/films.php';
-        } else {
-            include __DIR__ . '/../../public/views/upload_form.php';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action_csv'], $_POST['female_csv'], $_POST['male_csv'])) {
+            if ((int)$_POST['action_csv'] === 1) {
+                $films = $this->personService->getPersonOverview($_POST['female_csv'], $_POST['male_csv']);
+            } elseif ($_POST['action_csv'] === 2) {
+                var_dump($_POST, $_SERVER['REQUEST_METHOD'], [$_POST['action_csv'], $_POST['female_csv'], $_POST['male_csv']]);
+                $films = $this->personService->getFilmsWithBothAwards($_POST['female_csv'], $_POST['male_csv']);
+            }
         }
+        include __DIR__ . '/../../public/views/upload_form.php';
+
     }
 }
