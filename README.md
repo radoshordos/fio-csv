@@ -8,5 +8,5 @@ Tato aplikace umožňuje nahrát CSV soubory s údaji o oscarech za nejlepší m
 2. Naklonujte tento repozitář: `git clone https://github.com/radoshordos/fio-csv.git`
 3. Přesuňte se do složky projektu: `cd fio-csv`
 4. Spusťte aplikaci pomocí Docker Compose: `docker-compose up --build`
-5. Otevřete prohlížeč a přejděte na `http://localhost:3000`
-6. Composer `composer update`
+5. Composer `composer update`
+6. Otevřete prohlížeč a přejděte na `http://localhost:3000`
