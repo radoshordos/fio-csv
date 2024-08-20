@@ -9,4 +9,4 @@ Tato aplikace umožňuje nahrát CSV soubory s údaji o oscarech za nejlepší m
 3. Přesuňte se do složky projektu: `cd fio-csv`
 4. Spusťte aplikaci pomocí Docker Compose: `docker-compose up --build`
 5. Otevřete prohlížeč a přejděte na `http://localhost:3000`
-6. PSR-4 Autoloading `composer dump-autoload`
+6. Composer `composer update`
