@@ -1,7 +1,9 @@
 <?php
 
+use App\Enums\Gender;
+use App\Services\CsvLoader;
+use App\Services\PersonService;
 use PHPUnit\Framework\TestCase;
-use Src\Services\PersonService;
 
 class PersonServiceTest extends TestCase {
     private PersonService $personService;
@@ -11,15 +13,15 @@ class PersonServiceTest extends TestCase {
     }
 
     public function testGetPersonOverview(): void {
-        $overview = $this->personService->getPersonOverview('path/to/female.csv', 'path/to/male.csv');
+        $overview = $this->personService->getPersonOverview(CsvLoader::FEMALE_FILE, CsvLoader::MALE_FILE);
         $this->assertIsArray($overview);
-        $this->assertArrayHasKey(2021, $overview);
-        $this->assertArrayHasKey('female', $overview[2021]);
-        $this->assertArrayHasKey('male', $overview[2021]);
+        $this->assertArrayHasKey(2016, $overview);
+        $this->assertArrayHasKey(Gender::FEMALE->value, $overview[2016]);
+        $this->assertArrayHasKey(Gender::MALE->value, $overview[2016]);
     }
 
     public function testGetFilmsWithBothAwards(): void {
-        $films = $this->personService->getFilmsWithBothAwards('path/to/female.csv', 'path/to/male.csv');
+        $films = $this->personService->getFilmsWithBothAwards(CsvLoader::FEMALE_FILE, CsvLoader::MALE_FILE);
         $this->assertIsArray($films);
         $this->assertArrayHasKey('The Silence of the Lambs', $films);
     }

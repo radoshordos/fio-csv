@@ -10,6 +10,9 @@ class CsvLoader implements DataLoaderInterface
 {
     public const string SOURCE_URL = 'https://people.sc.fsu.edu/~jburkardt/data/csv/';
 
+    public const string MALE_FILE = 'oscar_age_female.csv';
+    public const string FEMALE_FILE = 'oscar_age_male.csv';
+
     public function parse(string $source): PersonData
     {
         $data = new PersonData();

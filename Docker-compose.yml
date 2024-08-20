@@ -9,15 +9,3 @@ services:
       - "3000:80"
     volumes:
       - .:/var/www/html/
-
-  # Testovací container pro PHPUnit
-  phpunit:
-    image: php:8.3-cli
-    container_name: fiocsv-phpunit
-    volumes:
-      - ./src:/var/www/html/src
-      - ./tests:/var/www/html/tests
-      - ./vendor:/app/vendor
-      - ./composer.json:/app/composer.json
-    working_dir: /src
-    command: [ "vendor/bin/phpunit", "--colors=always" ]

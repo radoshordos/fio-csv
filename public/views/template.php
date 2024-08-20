@@ -20,7 +20,7 @@
                     <label for="male_csv" class="form-label">CSV soubor oscar_age_male.csv</label>
                     <div class="input-group">
                         <span class="input-group-text"><?php echo App\Services\CsvLoader::SOURCE_URL; ?></span>
-                        <input type="text" readonly class="form-control readonly" id="male_csv" name="male_csv" value="oscar_age_male.csv">
+                        <input type="text" readonly class="form-control readonly" id="male_csv" name="male_csv" value="<?php echo App\Services\CsvLoader::MALE_FILE; ?>">
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     <label for="female_csv" class="form-label">CSV oscar_age_female.csv</label>
                     <div class="input-group">
                         <span class="input-group-text"><?php echo App\Services\CsvLoader::SOURCE_URL; ?></span>
-                        <input type="text" readonly class="form-control readonly" id="female_csv" name="female_csv" value="oscar_age_female.csv">
+                        <input type="text" readonly class="form-control readonly" id="female_csv" name="female_csv" value="<?php echo App\Services\CsvLoader::FEMALE_FILE; ?>">
                     </div>
                 </div>
             </div>

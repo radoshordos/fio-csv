@@ -25,6 +25,7 @@ WORKDIR /var/www/html
 # Zkopírování aplikace do kontejneru
 COPY ./public /var/www/html/public
 COPY ./app /var/www/html/app
+COPY ./tests /var/www/html/tests
 COPY ./composer.json /var/www/html/composer.json
 
 # Instalace PHP závislostí pomocí Composeru
