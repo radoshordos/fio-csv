@@ -1,6 +1,6 @@
 # Fio Csv App
 
-Tato aplikace umožňuje nahrát CSV soubory s údaji o oscarech za nejlepší mužskou a ženskou hlavní roli a zobrazit přehled.
+Tato aplikace umožňuje nahrát CSV soubory s údaji o oscarech za nejlepší mužskou a ženskou hlavní roli a zobrazit přehled. Více v zadani.txt
 
 ## Spuštění aplikace
 
